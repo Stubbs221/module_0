@@ -1,13 +1,16 @@
 import numpy as np
 
 
-def game_core_v1(number):
-    count = 0
-    while True:
+def game_core_v2(number):
+    count = 1
+    predict = np.random.randint(1, 101)
+    while number != predict:
         count += 1
-        predict = np.random.randint(1, 101)
-        if number == predict:
-            return count
+        if number > predict:
+            predict += 1
+        elif number < predict:
+            predict -= 1
+    return(count)
 
 
 def score_game(game_core):
@@ -21,5 +24,5 @@ def score_game(game_core):
     return(score)
 
 
-score_game(game_core_v1)
+score_game(game_core_v2)
 
